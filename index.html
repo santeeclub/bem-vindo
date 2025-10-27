@@ -180,6 +180,12 @@
             text-align: center;
         }
 
+        .info-cards {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+        }
+
         .info-card {
             background: linear-gradient(135deg, #3b0f29 0%, #581c42 100%);
             border-radius: 20px;
@@ -187,6 +193,7 @@
             margin-bottom: 20px;
             border: 1px solid rgba(244, 114, 182, 0.2);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            width: 100%;
         }
 
         .info-number {
@@ -510,6 +517,12 @@
         .modal-cta:not(:disabled):active {
             transform: translateY(2px);
         }
+
+        @media (max-width: 1024px) {
+            .info-cards {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -542,30 +555,32 @@
             <!-- Uma experiência única, cuidadosamente planejada para criar conexões autênticas -->
         </p>
         
-        <div class="info-card">
-            <div class="info-number">1</div>
-            <h3 class="info-title">Seleção e Curadoria</h3>
-            <p class="info-description">
-                A Santeé seleciona participantes com base em afinidades profissionais, interesses e momentos de vida, criando jantares e encontros entre pessoas que têm algo em comum.
-                <!-- Cada jantar é cuidadosamente planejado com grupos reduzidos de 6 a 12 pessoas, selecionadas para garantir conversas interessantes e conexões em comum. -->
-            </p>
-        </div>
+       <div class="info-cards">
+            <div class="info-card">
+                <div class="info-number">1</div>
+                <h3 class="info-title">Seleção e Curadoria</h3>
+                <p class="info-description">
+                    A Santeé seleciona participantes com base em afinidades profissionais, interesses e momentos de vida, criando jantares e encontros entre pessoas que têm algo em comum.
+                    <!-- Cada jantar é cuidadosamente planejado com grupos reduzidos de 6 a 12 pessoas, selecionadas para garantir conversas interessantes e conexões em comum. -->
+                </p>
+            </div>
 
-        <div class="info-card">
-            <div class="info-number">2</div>
-            <h3 class="info-title">Networking de qualidade</h3>
-            <p class="info-description">
-                Faça conexões com pessoas da sua área de um jeito leve, espontâneo em ambientes propícios para isso.
-            </p>
-        </div>
+            <div class="info-card">
+                <div class="info-number">2</div>
+                <h3 class="info-title">Networking de qualidade</h3>
+                <p class="info-description">
+                    Faça conexões com pessoas da sua área de um jeito leve, espontâneo em ambientes propícios para isso.
+                </p>
+            </div>
 
-        <div class="info-card">
-            <div class="info-number">3</div>
-            <h3 class="info-title">Participe e veja a mágica acontecer</h3>
-            <p class="info-description">
-                Nosso sistema de curadoria aprende com cada experiência para conectar você a pessoas com histórias, perfis e objetivos cada vez mais alinhados ao seu.
-            </p>
-        </div>
+            <div class="info-card">
+                <div class="info-number">3</div>
+                <h3 class="info-title">Participe e veja a mágica acontecer</h3>
+                <p class="info-description">
+                    Nosso sistema de curadoria aprende com cada experiência para conectar você a pessoas com histórias, perfis e objetivos cada vez mais alinhados ao seu.
+                </p>
+            </div>
+       </div>
     </section>
 
     <section class="cta-section" id="participar">

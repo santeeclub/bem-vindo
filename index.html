@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santé - Jantares Exclusivos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #1a0616;
+            color: #f0d2e8;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            position: relative;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(116, 58, 213, 0.0) 0%, rgba(136, 19, 55, 0.3) 60%, rgba(26, 6, 22, 0.95) 100%);
+        }
+
+        .logo {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+            width: 264px;
+        }
+
+        .logo-text {
+            font-size: 36px;
+            font-weight: 300;
+            color: #ffffff;
+            font-style: italic;
+        }
+
+        .logo-text img {
+            width: 80px;
+            margin-left: 10px;
+        }
+
+        .logo-text span {
+            margin-top: -25px;
+            display: block;
+        }
+
+        .logo-accent {
+            font-size: 12px;
+            color: #e879f9;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: -5px;
+            font-weight: 500;
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 75px;
+            left: 0;
+            right: 0;
+            padding: 0 24px;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 60px;
+            background: linear-gradient(135deg, #a855f7 0%, #881337 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 4px 20px rgba(136, 19, 55, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 4px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 2px;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(12px); opacity: 0; }
+        }
+
+        .section {
+            padding: 60px 24px;
+            background: #1a0616;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            /* color: #fff; */
+            color: #f472b6;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            /* color: #d946ef; */
+            color: #fff;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #3b0f29 0%, #581c42 100%);
+            border-radius: 20px;
+            padding: 32px 24px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(244, 114, 182, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .info-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #a855f7 0%, #881337 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .info-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #f472b6;
+        }
+
+        .info-description {
+            font-size: 15px;
+            color: #f0d2e8;
+            line-height: 1.7;
+        }
+
+        .vantagens-section {
+            background: linear-gradient(180deg, #1a0616 0%, #3b0f29 100%);
+        }
+
+        .vantagem-card {
+            background: linear-gradient(135deg, #581c42 0%, #701a48 100%);
+            border-radius: 16px;
+            padding: 28px 24px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            border-left: 4px solid #f472b6;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .vantagem-card:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 114, 182, 0.3);
+        }
+
+        .vantagem-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .vantagem-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #f472b6;
+        }
+
+        .vantagem-description {
+            font-size: 14px;
+            color: #f0d2e8;
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            background:#581c42;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .cta-section-text {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .footer {
+            background: #1a0616;
+            padding: 40px 24px 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 36px;
+            font-weight: 300;
+            color: #bf2b89;
+            font-style: italic;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #d8b4fe;
+            margin-bottom: 8px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(244, 114, 182, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 24px 24px 20px;
+            border-bottom: 1px solid rgba(244, 114, 182, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #000;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #000;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(244, 114, 182, 0.1);
+            color: #f472b6;
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+            background-color: #fff;
+            border-radius: 24px;
+        }
+
+        .terms-content {
+            color: #000;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .terms-content h3 {
+            color: #000;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+
+        .terms-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .terms-content p {
+            margin-bottom: 16px;
+        }
+
+        .terms-content ul {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+        }
+
+        .modal-footer {
+            padding: 20px 24px;
+            border-top: 1px solid rgba(244, 114, 182, 0.2);
+            background: rgba(26, 6, 22, 0.5);
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d8b4fe;
+            border-radius: 4px;
+            margin-right: 12px;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.3s;
+            margin-top: 2px;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked {
+            background: linear-gradient(135deg, #a855f7 0%, #881337 100%);
+            border-color: #f472b6;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .checkbox-label {
+            color: #f0d2e8;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .terms-link {
+            color: #d8b4fe;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 400;
+            text-decoration: underline;
+            font-size: 12px;
+        }
+
+        .modal-cta {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #a855f7 0%, #881337 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .modal-cta:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .modal-cta:not(:disabled):active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <img src="./assets/home_background.jpeg" alt="Jantar exclusivo" class="hero-image" id="heroImage">
+        <div class="hero-overlay"></div>
+        
+        <div class="logo">
+            <div class="logo-text">
+                <img src="./assets/logo-taca.png" alt="Santeé">
+                <span>Santeé</span>
+            </div>
+            <div class="logo-accent">Experiências Exclusivas</div>
+        </div>
+
+        <div class="hero-content animate-in">
+            <h1 class="hero-title">Onde encontros que não iriam acontecer, acontecem</h1>
+            <p class="hero-subtitle">
+                Jantares que se transformam em boas conversas, amizades e oportunidades
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIcGROZyGr24Pz-wlnCi4mgKDU7TZ1ck7VGw-9e6_tLoLzFQ/viewform?usp=dialog" class="cta-button">Fazer parte</a>
+        </div>
+    </section>
+
+    <section class="section" id="como-funciona">
+        <h2 class="section-title">Como funcionam os jantares da Santeé</h2>
+        <p class="section-subtitle">
+            Conecte-se com pessoas que compartilham seus interesses profissionais e pessoais e aproveite para fazer  novas amizades.
+
+            <!-- Uma experiência única, cuidadosamente planejada para criar conexões autênticas -->
+        </p>
+        
+        <div class="info-card">
+            <div class="info-number">1</div>
+            <h3 class="info-title">Seleção e Curadoria</h3>
+            <p class="info-description">
+                A Santeé seleciona participantes com base em afinidades profissionais, interesses e momentos de vida, criando jantares e encontros entre pessoas que têm algo em comum.
+                <!-- Cada jantar é cuidadosamente planejado com grupos reduzidos de 6 a 12 pessoas, selecionadas para garantir conversas interessantes e conexões em comum. -->
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-number">2</div>
+            <h3 class="info-title">Networking de qualidade</h3>
+            <p class="info-description">
+                Faça conexões com pessoas da sua área de um jeito leve, espontâneo em ambientes propícios para isso.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <div class="info-number">3</div>
+            <h3 class="info-title">Participe e veja a mágica acontecer</h3>
+            <p class="info-description">
+                Nosso sistema de curadoria aprende com cada experiência para conectar você a pessoas com histórias, perfis e objetivos cada vez mais alinhados ao seu.
+            </p>
+        </div>
+    </section>
+
+    <section class="cta-section" id="participar">
+        <h2 class="cta-section-title">Pronto para fazer parte?</h2>
+        <p class="cta-section-text">
+            Candidate-se agora e entre na lista para fazer parte de um primeiro jantar
+        </p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIcGROZyGr24Pz-wlnCi4mgKDU7TZ1ck7VGw-9e6_tLoLzFQ/viewform?usp=dialog" class="cta-button">Fazer parte</a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">Santeé</div>
+        <p class="footer-text">© 2025 Santeé. Todos os direitos reservados.</p>
+        <p class="footer-text">Av brigadeiro Faria Lima 1811  SP</p>
+        <a href="#termos-de-uso" class="terms-link" onclick="abrirModal()">Ler os termos de Uso</a>
+    </footer>
+
+    <!-- Modal de Termos -->
+    <div class="modal-overlay" id="modalTermos">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Termos de Uso</h2>
+                <button class="modal-close" onclick="fecharModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="terms-content">
+                    <h3>Sobre a Santeé</h3>
+                    <p>A Santeé é uma plataforma que se dedica, de maneira contínua e estruturada, à promoção de experiências sociais e profissionais, contemplando desde jantares temáticos e encontros cuidadosamente organizados até eventos de networking e de interesse específico, todos realizados com base em uma curadoria meticulosa que busca identificar afinidades genuínas entre os participantes. Nosso objetivo primordial consiste em proporcionar conexões reais, significativas e duradouras entre pessoas que compartilham trajetórias de vida, interesses, hobbies, valores e áreas de atuação semelhantes, garantindo que cada interação ocorra de maneira leve, segura, respeitosa e em um ambiente acolhedor e harmonioso, onde a troca de experiências possa ser verdadeiramente enriquecedora.</p>
+                    
+                    <h3>Aceitação dos Termos</h3>
+                    <p>Ao se inscrever em qualquer experiência organizada pela Santeé, preencher formulários de cadastro, acessar o site, utilizar o aplicativo, aceitar convites enviados por nossos canais oficiais ou, de qualquer outra forma, interagir com nossos serviços, você reconhece e declara de forma plena e inequívoca que leu, compreendeu e aceitou integralmente estes Termos de Uso e a Política de Privacidade. Você concorda expressamente com a coleta, armazenamento, tratamento e utilização de suas informações pessoais conforme descrito neste documento, estando ciente de que o descumprimento de quaisquer regras ou diretrizes estabelecidas poderá resultar em medidas corretivas, incluindo, sem limitação, a suspensão de sua conta, a exclusão do seu perfil ou a impossibilidade de participar de futuras experiências promovidas pela plataforma.</p>
+
+                    <h3>Participação e Cadastro</h3>
+                    <p>Para participar das experiências oferecidas pela Santeé, é necessário que o usuário tenha idade mínima de 18 anos, forneça informações verdadeiras, precisas e atualizadas, como nome completo, endereço de e-mail válido e área de atuação profissional ou acadêmica, e mantenha uma postura ética, respeitosa e adequada durante todo o período de participação. A Santeé reserva-se o direito de recusar, suspender ou remover perfis que violem as diretrizes de convivência, comprometam a experiência coletiva ou prejudiquem a harmonia e o bem-estar do grupo, assegurando assim que todos os participantes usufruam de um ambiente seguro e agradável.</p>
+
+                    <h3>Modelo de Serviço e Pagamentos</h3>
+                    <p>A Santeé poderá, em fases iniciais, oferecer eventos gratuitos para introduzir os usuários à plataforma, e, posteriormente, disponibilizar experiências pagas ou planos de assinatura. Ao aderir a qualquer serviço pago, o participante concorda com os valores, prazos, condições e políticas apresentados no momento da contratação, autoriza a cobrança automática por meio do método de pagamento cadastrado, e compreende que taxas, reservas e cancelamentos podem estar sujeitos a regras específicas previamente comunicadas. A Santeé reserva-se o direito de ajustar preços, planos e condições a qualquer momento, mediante aviso prévio mínimo de sete dias úteis aos usuários ativos.</p>
+
+                    <h3>Política de Privacidade e Uso de Dados</h3>
+                    <p>Os dados pessoais dos usuários são coletados, armazenados e utilizados pela Santeé exclusivamente para fins de organização e realização de eventos, envio de convites e experiências personalizadas, curadoria de afinidades, aprimoramento de recomendações futuras, comunicação sobre novidades e oportunidades, e cumprimento de obrigações legais e de segurança. As informações são obtidas diretamente por meio de formulários, interações no aplicativo ou outros canais oficiais da plataforma, sendo armazenadas em ambiente seguro e tratado com confidencialidade. A Santeé não compartilha dados com terceiros, exceto quando estritamente necessário para a execução de serviços, como reservas em estabelecimentos parceiros ou processamento de pagamentos. O usuário pode, a qualquer momento, solicitar a exclusão ou atualização de seus dados pessoais por meio do e-mail oficial da Santeé.</p>
+
+                    <h3>Aprendizado e Personalização</h3>
+                    <p>A Santeé utiliza sistemas de curadoria inteligente e algoritmos de afinidade para recomendar encontros, eventos e pessoas de acordo com os interesses e comportamentos dos participantes. Ao utilizar a plataforma, o usuário autoriza o processamento de dados relacionados ao seu engajamento, incluindo frequência de participação, preferências, áreas de atuação e interações, com o objetivo de melhorar continuamente a qualidade das recomendações e experiências. É importante ressaltar que tais dados nunca serão vendidos ou compartilhados com terceiros fora dos objetivos operacionais e de aprimoramento do serviço.</p>
+
+                    <h3>Propriedade Intelectual</h3>
+                    <p>Todo o conteúdo presente na plataforma, incluindo, mas não se limitando a marca, nome, identidade visual, textos, imagens, fotografias, códigos, algoritmos e demais elementos de curadoria, é de propriedade exclusiva da Santeé. É expressamente proibido copiar, reproduzir, divulgar, distribuir ou utilizar qualquer parte do conteúdo ou da marca sem autorização formal e prévia da empresa.</p>
+
+                    <h3>Conduta e Convivência</h3>
+                    <p>A Santeé valoriza um ambiente de respeito, inclusão, autenticidade e segurança. Condutas ofensivas, discriminatórias, desrespeitosas ou que comprometam a integridade emocional ou física de outros participantes não serão toleradas. A empresa reserva-se o direito de suspender, remover ou impedir a participação de membros que violem essas diretrizes, sem direito a reembolso em casos de má conduta comprovada.</p>
+
+                    <h3>Cancelamentos e Reembolsos</h3>
+                    <p>Cancelamentos solicitados com até 48 horas de antecedência garantem reembolso integral. Após esse prazo, a Santeé poderá reter valores relacionados a reservas, custos de operação ou logística. Caso o evento seja cancelado pela Santeé, o participante poderá optar entre reembolso integral ou crédito para futuras experiências.</p>
+
+                    <h3>Comunicações e Consentimento</h3>
+                    <p>Ao se cadastrar, o usuário concorda em receber comunicações da Santeé, incluindo e-mails, mensagens via WhatsApp e notificações sobre convites, novidades, experiências futuras, atualizações de perfil e recomendações personalizadas. O descadastro dessas comunicações pode ser solicitado a qualquer momento, sem prejuízo do acesso à conta ou da participação em experiências.</p>
+
+                    <h3>Limitação de Responsabilidade</h3>
+                    <p>A Santeé atua apenas como organizadora e curadora das experiências, não sendo responsável por imprevistos ocorridos em estabelecimentos parceiros, como atrasos, falhas de serviço ou questões de segurança. Também não se responsabiliza por interações ocorridas entre participantes fora do ambiente oficial dos eventos. A responsabilidade da Santeé limita-se exclusivamente ao valor pago pelo participante pela experiência contratada.</p>
+
+                    <h3>Alterações dos Termos</h3>
+                    <p>A Santeé reserva-se o direito de atualizar, revisar ou alterar estes Termos de Uso e Políticas a qualquer momento, com o objetivo de refletir melhorias operacionais, alterações legais ou novos serviços. As alterações entrarão em vigor imediatamente após sua publicação no site, sendo de responsabilidade do usuário manter-se informado sobre a versão mais recente.</p>
+
+                    <h3>Contato e Suporte</h3>
+                    <p>Em caso de dúvidas, solicitações de exclusão ou atualização de dados pessoais, sugestões ou quaisquer questionamentos relacionados à utilização da plataforma, os usuários podem entrar em contato com a equipe da Santeé através do e-mail oficial: <strong>santee.club@gmail.com</strong>.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Carrega a imagem do jantar
+        const heroImg = document.getElementById('heroImage');
+        const img = new Image();
+        img.onload = function() {
+            heroImg.src = this.src;
+        };
+        // Substitua pela URL real da imagem
+        // img.src = 'caminho-para-imagem-jantar.jpg';
+
+        // Variável para controlar se os termos foram lidos
+        let termosLidos = false;
+
+        // Abrir modal
+        function abrirModal() {
+            document.getElementById('modalTermos').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            termosLidos = false;
+        }
+
+        // Fechar modal
+        function fecharModal() {
+            document.getElementById('modalTermos').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fechar modal ao clicar fora
+        document.getElementById('modalTermos').addEventListener('click', function(e) {
+            if (e.target === this) {
+                fecharModal();
+            }
+        });
+    </script>
+</body>
+</html>

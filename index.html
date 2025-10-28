@@ -108,6 +108,13 @@
             font-weight: 300;
         }
 
+        .schools {
+            display: flex;
+            justify-content: center;
+        }
+
+
+
         .cta-button {
             display: inline-block;
             padding: 18px 60px;
@@ -165,20 +172,87 @@
         .section-title {
             font-size: 28px;
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             /* color: #fff; */
             color: #f472b6;
             text-align: center;
         }
 
+        .section-title-schools {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
         .section-subtitle {
-            font-size: 15px;
+            font-size: 14px;
             /* color: #d946ef; */
             color: #fff;
             margin-bottom: 40px;
             line-height: 1.8;
             text-align: center;
         }
+
+        .schools {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 24px auto;
+            overflow: hidden;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            
+        }
+
+        .schools-track {
+            display: flex;
+            gap: 16px;
+            animation: scroll-schools 16s linear infinite;
+            width: fit-content;
+        }
+
+        .schools-track img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .schools-track img:hover {
+            opacity: 1;
+        }
+
+        @keyframes scroll-schools {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .schools::before,
+        .schools::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .schools::before {
+            left: 0;
+            background: linear-gradient(to right, #1a0616 0%, transparent 100%);
+        }
+
+        .schools::after {
+            right: 0;
+            background: linear-gradient(to left, #1a0616 0%, transparent 100%);
+        }
+
 
         .info-cards {
             display: flex;
@@ -548,13 +622,30 @@
     </section>
 
     <section class="section" id="como-funciona">
-        <h2 class="section-title">Onde estudam os membros da nossa comunidade?</h2>
-        <img src="" alt="">
-        <p class="section-subtitle">
-            Conecte-se com pessoas que compartilham seus interesses profissionais e pessoais e aproveite para fazer  novas amizades.
+        <h2 class="section-title section-title-schools">Onde os membros do nosso clube estudam?</h2>
+        <div class="schools">
+            <div class="schools-track">
+                <img src="./assets/insper.png" alt="Insper">
+                <img src="./assets/inteli.png" alt="Inteli">
+                <img src="./assets/fgv.png" alt="FGV">
+                <img src="./assets/link.png" alt="Link">
 
-            <!-- Uma experiência única, cuidadosamente planejada para criar conexões autênticas -->
-        </p>
+                <img src="./assets/insper.png" alt="Insper">
+                <img src="./assets/inteli.png" alt="Inteli">
+                <img src="./assets/fgv.png" alt="FGV">
+                <img src="./assets/link.png" alt="Link">
+
+                <img src="./assets/insper.png" alt="Insper">
+                <img src="./assets/inteli.png" alt="Inteli">
+                <img src="./assets/fgv.png" alt="FGV">
+                <img src="./assets/link.png" alt="Link">
+
+                <img src="./assets/insper.png" alt="Insper">
+                <img src="./assets/inteli.png" alt="Inteli">
+                <img src="./assets/fgv.png" alt="FGV">
+                <img src="./assets/link.png" alt="Link">
+            </div>
+        </div>
 
         <h2 class="section-title">Como funcionam os jantares da Santeé</h2>
         <p class="section-subtitle">

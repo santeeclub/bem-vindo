@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "https://santeeclub.github.io/bem-vindo",
+  "homepage": "https://santee.club",
   "scripts": {
     "deploy": "gh-pages -d dist"
   },
